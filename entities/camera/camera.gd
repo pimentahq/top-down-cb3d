@@ -5,7 +5,7 @@ extends Position3D
 
 @onready var _player: CharacterBody3D = %Player
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	move_camera()
 	
 
