@@ -1,19 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7lmh2cxbhdmv"]
+[gd_scene load_steps=13 format=3 uid="uid://b7lmh2cxbhdmv"]
 
 [ext_resource type="PackedScene" path="res://ui/debug/performance_metrics.tscn" id="1_bx2s3"]
 [ext_resource type="PackedScene" uid="uid://cvt0q034dcfmu" path="res://entities/player/player.tscn" id="2_epk3r"]
+[ext_resource type="PackedScene" uid="uid://d24rlsja3st4d" path="res://entities/camera/camera.tscn" id="3_hasph"]
 [ext_resource type="Texture2D" uid="uid://bibrxrwdsatiw" path="res://entities/dev/textures/white_floor.png" id="3_y0kgx"]
 [ext_resource type="PackedScene" path="res://entities/dev/static_box.tscn" id="4_adqqc"]
 [ext_resource type="PackedScene" uid="uid://doee2xfu41qk1" path="res://entities/interactables/jumper.tscn" id="6_cfsnj"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4yf62"]
-
-[sub_resource type="Sky" id="Sky_gd0q5"]
-sky_material = SubResource( "ProceduralSkyMaterial_4yf62" )
-
-[sub_resource type="Environment" id="Environment_f0b4c"]
-background_mode = 2
-sky = SubResource( "Sky_gd0q5" )
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1enw2"]
 albedo_texture = ExtResource( "3_y0kgx" )
@@ -26,19 +18,25 @@ size = Vector3(30, 0.5, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xwfat"]
 size = Vector3(30, 0.5, 30)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4yf62"]
+
+[sub_resource type="Sky" id="Sky_gd0q5"]
+sky_material = SubResource( "ProceduralSkyMaterial_4yf62" )
+
+[sub_resource type="Environment" id="Environment_f0b4c"]
+background_mode = 2
+sky = SubResource( "Sky_gd0q5" )
+
 [node name="Level01" type="Node3D"]
 
 [node name="PerformanceMetrics" parent="." instance=ExtResource( "1_bx2s3" )]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( "Environment_f0b4c" )
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.965926, -0.224144, 0.129409, -0.058688, 0.297293, 0.952981, -0.252077, -0.928104, 0.274008, 0, 16, 0)
-shadow_enabled = true
-
 [node name="Player" parent="." instance=ExtResource( "2_epk3r" )]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Camera" parent="." instance=ExtResource( "3_hasph" )]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 10)
 
 [node name="Terrain" type="Node3D" parent="."]
 
@@ -73,3 +71,10 @@ transform = Transform3D(4.73869, 7.3874e-08, -7.06121e-08, -3.5306e-08, 9.91521,
 
 [node name="Jumper" parent="Terrain" instance=ExtResource( "6_cfsnj" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78658, 0, 5.06308)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( "Environment_f0b4c" )
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.224144, 0.129409, -0.058688, 0.297293, 0.952981, -0.252077, -0.928104, 0.274008, 0, 16, 0)
+shadow_enabled = true
