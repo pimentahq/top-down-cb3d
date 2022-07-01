@@ -3,5 +3,5 @@ Hello, this is a simple top down template using CharacterBody3D (KinematicBody),
 
 ## Info
  - [Showcase Video - Youtube](https://www.youtube.com/watch?v=6SXkMypr18M)
- - Requires Godot 4.0 (Alpha 10+)
+ - Requires Godot 4.0 (Alpha 11+)
  - MIT License
