@@ -2,6 +2,6 @@
 Hello, this is a simple top down template using CharacterBody3D (KinematicBody), feel free to use.
 
 ## Info
- - [Showcase Video - Youtube]()
+ - [Showcase Video - Youtube](https://www.youtube.com/watch?v=6SXkMypr18M)
  - Requires Godot 4.0 (Alpha 10+)
  - MIT License
