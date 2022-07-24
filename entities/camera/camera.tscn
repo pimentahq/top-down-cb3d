@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d24rlsja3st4d"]
+[gd_scene load_steps=2 format=3 uid="uid://ywurypct7of7"]
 
-[ext_resource type="Script" path="res://entities/camera/camera.gd" id="1_mei61"]
+[ext_resource type="Script" path="res://entities/camera/scripts/camera.gd" id="1_mei61"]
 
 [node name="Camera" type="Position3D"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0)
-script = ExtResource( "1_mei61" )
+script = ExtResource("1_mei61")
 
 [node name="CameraTransform" type="Position3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0, 6, 0)
